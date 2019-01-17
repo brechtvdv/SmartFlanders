@@ -6,6 +6,7 @@ const cors = require("cors");
 const routes = require("./routes");
 const path = require("path");
 const pug = require("pug");
+const serverless = require('serverless-http');
 
 // --- Middlewere
 app.use(body.json());
@@ -41,3 +42,5 @@ app.use(function(err, req, res, next) {
  * @param {number} - Port number
  */
 app.listen(3001, () => console.log("SmartFlanders is running on port 3001"))
+
+module.exports.handler = serverless(app);
